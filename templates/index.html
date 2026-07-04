@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A little something for you 🎁</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A little something for you 🎁</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<div class="scene">
-  <div class="card" id="card">
+  <div class="scene">
+    <div class="card" id="card">
 
-    <div id="inviteStage">
-      <p class="eyebrow">a little something for you</p>
-      <h1>I've been holding<br>onto <em>a gift</em> for you.</h1>
-      <p class="subtext">No occasion. I just want to see your face when you open it — so, will you meet me?</p>
+      <div id="inviteStage">
+        <p class="eyebrow">a little something for you</p>
+        <h1>I've been holding<br>onto <em>a gift</em> for you.</h1>
+        <p class="subtext">Hamesha ki tarah aapke pass "NO" yeh option nahi hai so woh NO ke saath khelo mat 😒
+          So Jaldi Yes par click karke aage jau
+        </p>
 
-      <div class="envelope-wrap">
-        <div class="envelope-body">
-          <div class="letter-peek"></div>
-          <div class="envelope-flap"></div>
-          <div class="seal">🎁</div>
+        <div class="envelope-wrap">
+          <div class="envelope-body">
+            <div class="letter-peek"></div>
+            <div class="envelope-flap"></div>
+            <div class="seal">🎁</div>
+          </div>
         </div>
+
+        <div class="choice-row">
+          <button class="btn btn-yes" id="yesBtn">Yes, let's meet!</button>
+          <button class="btn btn-no" id="noBtn">No</button>
+        </div>
+        <p class="dodge-counter" id="dodgeCounter"></p>
       </div>
 
-      <div class="choice-row">
-        <button class="btn btn-yes" id="yesBtn">Yes, let's meet!</button>
-        <button class="btn btn-no" id="noBtn">No</button>
+      <div class="planner" id="planner">
+        <h2>Perfect. When are you free?</h2>
+        <p class="planner-sub">Pick a day that works for you. Ab aap itna bhi bhav mat khaoo 😒</p>
+
+        <div class="cal-header">
+          <button id="prevMonth" aria-label="Previous month">‹</button>
+          <span class="cal-month" id="calMonth"></span>
+          <button id="nextMonth" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+
+        <textarea class="note-field" id="noteField" placeholder="Anything you want to add? (optional)"></textarea>
+        <button class="confirm-btn" id="confirmBtn" disabled>Lock it in →</button>
+        <p class="error-msg" id="errorMsg"></p>
       </div>
-      <p class="dodge-counter" id="dodgeCounter"></p>
-    </div>
 
-    <div class="planner" id="planner">
-      <h2>Perfect. When are you free?</h2>
-      <p class="planner-sub">Pick a day that works for you — I'll build the rest around it.</p>
-
-      <div class="cal-header">
-        <button id="prevMonth" aria-label="Previous month">‹</button>
-        <span class="cal-month" id="calMonth"></span>
-        <button id="nextMonth" aria-label="Next month">›</button>
+      <div class="success" id="success">
+        <div class="stamp">🎉</div>
+        <h2 id="successDate">It's locked in.</h2>
+        <p class="sweet-note">
+          Before you go — I just want you to know that <em>kaisa laga</em> website, yeh toh
+          bas trailer hai, aage bohot kuch aana baaki hai.<br>
+          So stay tuned for upcoming websites.<br>
+          Website ki rating aap call nahi toh WhatsApp pe de sakte ho!!<br>
+          Thank you for reading, my badbad 💛
+        </p>
       </div>
-      <div class="cal-grid" id="calGrid"></div>
 
-      <textarea class="note-field" id="noteField" placeholder="Anything you want to add? (optional)"></textarea>
-      <button class="confirm-btn" id="confirmBtn" disabled>Lock it in →</button>
-      <p class="error-msg" id="errorMsg"></p>
     </div>
-
-    <div class="success" id="success">
-      <div class="stamp">🎉</div>
-      <h2 id="successDate">It's locked in.</h2>
-      <p class="sweet-note">
-        Before you go — I just want you to know that you make everything better just by
-        being in it. You've stuck around through the messy parts, celebrated the good parts,
-        and never once made me feel like too much. I don't say it enough, so: thank you for
-        being exactly who you are. I'm really lucky to call you my best friend. 💛
-      </p>
-    </div>
-
   </div>
-</div>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
