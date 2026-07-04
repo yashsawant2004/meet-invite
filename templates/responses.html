@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Her answers</title>
+<style>
+  body{
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    background:#FBF3E7;
+    color:#2E2A26;
+    margin:0;
+    padding:40px 20px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; }
+  h1{ font-size:24px; margin-bottom:4px; }
+  .sub{ color:#6b6258; font-size:14px; margin-bottom:28px; }
+  .entry{
+    background:#fff;
+    border-radius:14px;
+    padding:18px 20px;
+    margin-bottom:14px;
+    box-shadow:0 10px 24px -16px rgba(46,42,38,0.4);
+    border:1px solid rgba(46,42,38,0.06);
+  }
+  .entry .date{ font-weight:700; font-size:18px; color:#C9184A; }
+  .entry .note{ margin-top:6px; font-size:14px; color:#2E2A26; }
+  .entry .meta{ margin-top:8px; font-size:12px; color:#a39c8f; }
+  .empty{ color:#6b6258; font-size:15px; }
+  .refresh{
+    display:inline-block;
+    margin-top:24px;
+    font-size:13px;
+    color:#4E7C59;
+    text-decoration:none;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Her answer{{ 's' if responses|length != 1 else '' }}</h1>
+    <p class="sub">Newest first. Reload this page any time to check for new picks.</p>
+
+    {% if responses %}
+      {% for r in responses %}
+        <div class="entry">
+          <div class="date">📅 {{ r.date }}</div>
+          {% if r.note %}
+            <div class="note">"{{ r.note }}"</div>
+          {% endif %}
+          <div class="meta">received {{ r.received_at }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="empty">No date picked yet — check back after she's opened the page.</p>
+    {% endif %}
+
+    <a class="refresh" href="">↻ Refresh</a>
+  </div>
+</body>
+</html>
